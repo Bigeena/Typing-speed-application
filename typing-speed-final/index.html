@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="confetti-container"></div>
+
+<div class="container">
+
+  <!-- Header -->
+  <bheader>
+    <div class="logo">
+      <div class="logo-icon">⌨️</div>
+      <div class="logo-text">
+        <h1>Typing Speed Test</h1>
+        <p>Type as fast as you can in 60 seconds</p>
+      </div>
+    </div>
+    <div class="personal-best">
+      <span class="trophy">🏆</span>
+      <span class="label">Personal best:</span>
+      <span class="score" id="pb-display">— WPM</span>
+    </div>
+  </bheader>
+
+  <!-- Stats Bar -->
+  <div class="stats">
+    <div class="timing">
+      <div class="option">
+        <span class="label">WPM:</span>
+        <span class="value wpm-val" id="wpm-display">0</span>
+      </div>
+      <div class="option">
+        <span class="label">Accuracy:</span>
+        <span class="value accuracy-val" id="acc-display">100%</span>
+      </div>
+      <div class="option">
+        <span class="label">Time:</span>
+        <span class="value time-val" id="time-display">0:60</span>
+      </div>
+    </div>
+
+    <!-- Desktop tag selectors -->
+    <div class="difficulties">
+      <div class="tag-group">
+        <span class="label">Difficulty:</span>
+        <button class="tag" data-diff="easy">Easy</button>
+        <button class="tag" data-diff="medium">Medium</button>
+        <button class="tag active" data-diff="hard">Hard</button>
+      </div>
+      <div class="tag-group">
+        <span class="label">Mode:</span>
+        <button class="tag active" data-mode="timed">Timed (60s)</button>
+        <button class="tag" data-mode="passage">Passage</button>
+      </div>
+    </div>
+
+    <!-- Mobile dropdowns -->
+    <div class="mobile-selectors">
+      <div class="mobile-select-wrapper">
+        <select id="mobile-diff">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard" selected>Hard</option>
+        </select>
+      </div>
+      <div class="mobile-select-wrapper">
+        <select id="mobile-mode">
+          <option value="timed" selected>Timed (60s)</option>
+          <option value="passage">Passage</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Typing Area -->
+  <div id="typing-area">
+    <div class="typebox" id="typebox" tabindex="0" role="textbox" aria-label="Typing area">
+      <div class="texts" id="passage-text"></div>
+      <div class="starter" id="starter">
+        <button class="btn-start" id="btn-start">Start Typing Test</button>
+        <p>Or click the text and start typing</p>
+      </div>
+    </div>
+    <div class="restart-bar" id="restart-bar">
+      <button class="btn-restart" id="btn-restart">Restart Test ↺</button>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div id="results-screen">
+    <div class="result-icon success" id="result-icon">✓</div>
+    <h2 id="result-title">Test Complete!</h2>
+    <p class="subtitle" id="result-subtitle">Solid run. Keep pushing to beat your high score.</p>
+    <div class="result-cards">
+      <div class="result-card">
+        <div class="card-label">WPM:</div>
+        <div class="card-value" id="res-wpm">0</div>
+      </div>
+      <div class="result-card">
+        <div class="card-label">Accuracy:</div>
+        <div class="card-value" id="res-acc">0%</div>
+      </div>
+      <div class="result-card">
+        <div class="card-label">Characters</div>
+        <div class="chars-display">
+          <span class="correct-chars" id="res-correct">0</span>
+          <span class="sep">/</span>
+          <span class="wrong-chars" id="res-wrong">0</span>
+        </div>
+      </div>
+    </div>
+    <button class="btn-again" id="btn-again">Go Again ↺</button>
+  </div>
+
+</div><!-- /.container -->
+
+<!-- Hidden input to capture keyboard on mobile -->
+<input type="text" id="hidden-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+
+<script src="script.js"></script>
+</body>
+</html>
